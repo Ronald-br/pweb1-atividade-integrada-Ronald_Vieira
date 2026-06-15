@@ -1,0 +1,21 @@
+# Atividade Integrada - PWEB1
+
+## Autor
+Ronald Vieira
+
+## Descrição
+Projeto desenvolvido em Laravel como atividade acadêmica da disciplina PWEB1.
+
+## Funcionalidades
+- Cadastro de disciplinas
+- Listagem de registros
+- Edição e exclusão (CRUD)
+
+## Tecnologias
+- Laravel
+- PHP
+- MySQL
+- Git e GitHub
+
+## Observações
+Projeto organizado com uso de branches e pull request para integração final.
