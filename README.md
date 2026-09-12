@@ -1,59 +1,80 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Sistema Acadêmico - Evolução (PWEB1)
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Este é um projeto final para a disciplina de Programação Web 1, que demonstra a evolução de um sistema web utilizando o framework **Laravel** e a linguagem **PHP**.
 
-## About Laravel
+## Objetivo
+O objetivo principal deste projeto é evoluir um sistema pré-existente agregando recursos modernos e boas práticas de desenvolvimento backend, tais como:
+- Rotas, Views (Blade) e Controllers
+- Banco de dados relacional (SQLite) e Migrations
+- ORM Eloquent e relacionamentos complexos (N:M)
+- Padrão arquitetural com Service Layer (`MatriculaService`)
+- Validação de dados de requisição
+- Interface com estilização Rica (CSS Puro) e Responsiva
+- Testes Automatizados Funcionais
+- Versionamento com Git e preparado para Deploy
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Principais Funcionalidades
+- **Gestão de Alunos:** Cadastro, listagem, edição e exclusão de alunos.
+- **Gestão de Disciplinas:** Cadastro, listagem, edição e exclusão de disciplinas.
+- **Matrículas:** Interface unificada para matricular e desmatricular alunos nas disciplinas disponíveis, evidenciando o relacionamento `belongsToMany` no Eloquent.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Tecnologias Utilizadas
+- **PHP 8.2+**
+- **Laravel 11+**
+- **SQLite** (Banco de dados local)
+- **Vanilla CSS** (Design Premium)
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Instruções para Execução Local
 
-## Learning Laravel
+Siga os passos abaixo para testar a aplicação em seu ambiente:
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+1. **Clone o repositório:**
+   ```bash
+   git clone <URL_DO_REPOSITORIO>
+   cd pweb1-atividade-integrada-Ronald_Vieira
+   ```
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+2. **Instale as dependências do Composer:**
+   ```bash
+   composer install
+   ```
 
-## Laravel Sponsors
+3. **Configure as Variáveis de Ambiente:**
+   Copie o arquivo de exemplo e crie o banco de dados local:
+   ```bash
+   cp .env.example .env
+   ```
+   No arquivo `.env`, certifique-se de que a conexão do banco seja `DB_CONNECTION=sqlite` e remova outras variáveis como `DB_HOST`, `DB_PORT`, `DB_DATABASE`, etc., ou as deixe com o padrão.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+4. **Gere a chave da aplicação e rode as migrações:**
+   ```bash
+   php artisan key:generate
+   php artisan migrate
+   ```
 
-### Premium Partners
+5. **Inicie o servidor local:**
+   ```bash
+   php artisan serve
+   ```
+   O sistema estará acessível em `http://localhost:8000`.
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+## Informações sobre Testes
 
-## Contributing
+Para garantir a confiabilidade da aplicação, foram desenvolvidos testes funcionais automatizados para as principais entidades. Para executá-los, utilize:
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+```bash
+php artisan test
+```
 
-## Code of Conduct
+## Informações sobre o Processo de Deploy
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+A aplicação está pronta para ser implantada em serviços compatíveis com PHP e Laravel (como **Render**, **Heroku**, ou **Railway**).
 
-## Security Vulnerabilities
+**Procedimento geral:**
+1. Crie o aplicativo na plataforma escolhida (ex: Render).
+2. Configure o Build Command: `composer install --optimize-autoloader --no-dev`.
+3. Configure o Start Command: Utilizar servidor Apache/Nginx apontando para a pasta `public`, ou para testes simples `php artisan serve --host=0.0.0.0 --port=$PORT`.
+4. Adicione as variáveis de ambiente (APP_KEY, APP_ENV=production, DB_CONNECTION=sqlite).
+5. Como estamos usando SQLite, garanta que a plataforma suporte discos persistentes ou altere o banco de dados no painel da provedora de cloud para PostgreSQL/MySQL, atualizando a URL de conexão na aba de Environment Variables.
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+**Endereço da aplicação publicada:** [A SER INSERIDO PELO ESTUDANTE APÓS O DEPLOY]
