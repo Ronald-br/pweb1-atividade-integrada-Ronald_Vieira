@@ -131,6 +131,8 @@ Utilizado na continuidade do desenvolvimento a partir do ponto em que o Gemini p
 
 Todas as sugestões fornecidas pelas ferramentas de IA foram revisadas, testadas e validadas manualmente antes de serem incorporadas ao projeto. O funcionamento de cada alteração foi conferido diretamente na aplicação, tanto em ambiente local quanto em produção, antes da conclusão de cada etapa. O estudante é responsável por todas as decisões técnicas e pelo código final entregue, sendo capaz de explicar cada componente implementado.
 
+> ⚠️ **Aviso sobre o plano gratuito:** o serviço de hospedagem (Render, plano gratuito) coloca a aplicação em modo de espera após 15 minutos sem uso. Por isso, o primeiro acesso após um período de inatividade pode levar cerca de 30 segundos para carregar, enquanto o sistema "acorda". Após esse primeiro carregamento, a navegação volta ao normal. Esse comportamento é esperado em hospedagens gratuitas e não representa um erro da aplicação.
+
 ## Autor
 
 Ronald Vieira
